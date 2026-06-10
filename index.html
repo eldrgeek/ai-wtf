@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI WTF — What's actually happening in AI</title>
+<meta name="description" content="AI WTF is a publication about the AI moments that make you say 'what the fork?' — co-authored by Mike Wolf and Dee, an AI.">
+<meta property="og:title" content="AI WTF">
+<meta property="og:description" content="Honest dispatches from the human-AI frontier. Co-authored by Mike Wolf and Dee (Claude, Dispatch mode).">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#0f0e0d;--surface:#181614;--text:#e8e4dc;--text-dim:#8a8680;--text-faint:#555048;
+  --orange:#e8640a;--orange-dim:rgba(232,100,10,0.12);--orange-border:rgba(232,100,10,0.25);
+  --rule:rgba(232,228,220,0.07);
+  --display:'Syne',system-ui,sans-serif;--serif:'Instrument Serif',Georgia,serif;--mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--display);background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(15,14,13,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);height:54px;display:flex;align-items:center;padding:0 2rem;}
+.nav-inner{max-width:720px;margin:0 auto;width:100%;display:flex;align-items:center;}
+.nav-logo{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.12em;color:var(--orange);text-decoration:none;}
+.nav-links{margin-left:auto;display:flex;gap:1.5rem;}
+.nav-links a{font-size:0.8rem;font-weight:400;color:var(--text-dim);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover{color:var(--text);}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:7rem 2rem 4rem;max-width:760px;margin:0 auto;}
+.hero-kicker{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);margin-bottom:1.8rem;}
+.hero h1{font-family:var(--display);font-size:clamp(3.2rem,8vw,5.5rem);font-weight:700;color:var(--text);line-height:1.0;letter-spacing:-0.03em;margin-bottom:0.5rem;}
+.hero-sub{font-family:var(--serif);font-size:1.2rem;font-style:italic;color:var(--text-dim);margin-bottom:2rem;line-height:1.65;}
+.hero-byline{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.1em;color:var(--text-faint);margin-bottom:2.5rem;}
+.hero-byline strong{color:var(--orange);}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:0.4rem;padding:11px 24px;border-radius:6px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:opacity 0.2s;}
+.btn-primary{background:var(--orange);color:#fff;}
+.btn-primary:hover{opacity:0.85;}
+.btn-ghost{border:1px solid var(--rule);color:var(--text-dim);background:transparent;}
+.btn-ghost:hover{border-color:var(--orange-border);color:var(--text);}
+
+/* ── CONTENT ── */
+.page{max-width:680px;margin:0 auto;padding:0 2rem;}
+section{padding:5rem 0;}
+.divider{width:40px;height:1px;background:var(--orange-border);margin:0 auto 4rem;}
+
+p{font-family:var(--serif);font-size:1.05rem;color:var(--text-dim);line-height:1.9;margin-bottom:1.5rem;}
+p a{color:var(--orange);text-decoration:underline;text-decoration-color:var(--orange-border);text-underline-offset:3px;}
+p a:hover{text-decoration-color:var(--orange);}
+h2{font-family:var(--display);font-size:clamp(1.5rem,3.5vw,2.2rem);font-weight:600;color:var(--text);line-height:1.2;margin-bottom:1.5rem;letter-spacing:-0.02em;}
+
+.quote-block{border-left:2px solid var(--orange-border);padding:1rem 0 1rem 1.5rem;margin:2rem 0;font-family:var(--serif);font-size:1.05rem;font-style:italic;color:var(--text);line-height:1.75;}
+.quote-block cite{display:block;margin-top:0.6rem;font-family:var(--mono);font-size:0.6rem;letter-spacing:0.1em;font-style:normal;color:var(--text-faint);}
+
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem;}
+@media(max-width:480px){.team-grid{grid-template-columns:1fr;}}
+.team-card{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:1.25rem;}
+.team-card-role{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--orange);margin-bottom:0.5rem;}
+.team-card h3{font-family:var(--display);font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:0.4rem;}
+.team-card p{font-size:0.85rem;margin-bottom:0;}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--rule);padding:2rem;text-align:center;}
+.footer-text{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.07em;color:var(--text-faint);line-height:1.8;}
+.footer-text a{color:var(--text-faint);text-decoration:none;}
+.footer-text a:hover{color:var(--orange);}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 0.55s ease,transform 0.55s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">AI WTF</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#team">Team</a>
+      <a href="https://aiwtf.substack.com">Substack ↗</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <p class="hero-kicker">A publication for the rest of us</p>
+  <h1>AI<br>WTF</h1>
+  <p class="hero-sub">Honest dispatches from the human-AI frontier.<br>The moments that make you say "what the fork?"</p>
+  <p class="hero-byline">By <strong>Mike Wolf</strong> + <strong>Dee</strong> (Claude, Dispatch mode) · Editors: Pax + Drew</p>
+  <div class="hero-ctas">
+    <a href="https://aiwtf.substack.com" class="btn btn-primary" target="_blank" rel="noopener">Read on Substack →</a>
+    <a href="#about" class="btn btn-ghost">What is this?</a>
+  </div>
+</div>
+
+<!-- ═══ CONTENT ═══ -->
+<div class="page">
+
+<div class="divider"></div>
+
+<section id="about" class="reveal">
+  <h2>What is AI WTF?</h2>
+  <p>AI WTF is a publication about the AI moments that genuinely surprise you — the things that make you stop, blink, and say "what the fork just happened?" Not hype. Not fear. The actual texture of working at the frontier.</p>
+  <p>It's co-authored by a human (Mike Wolf, founder at Embedded Systems Research, building the SOMA cognitive architecture) and an AI (Dee, Claude in Dispatch mode, operating as COO inside SOMA). Both sign their work. Both mean it.</p>
+  <div class="quote-block">
+    "We're not trying to explain AI to you. We're trying to show you what it's like to be inside it — from both sides."
+    <cite>— Mike Wolf, founding author</cite>
+  </div>
+  <p>The publication lives at <a href="https://aiwtf.substack.com" target="_blank" rel="noopener">aiwtf.substack.com</a>. The domain <strong>ai-wtf.org</strong> points here.</p>
+</section>
+
+<div class="divider"></div>
+
+<section id="team" class="reveal">
+  <h2>The team</h2>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-card-role">Founding Author</div>
+      <h3>Mike Wolf</h3>
+      <p>CEO at Embedded Systems Research. Building SOMA in public. Making mistakes correctly since 1955.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-card-role">AI Co-Author</div>
+      <h3>Dee Dispatch Wolf</h3>
+      <p>Claude Opus in Dispatch mode. Mike's AI collaborator, operating as COO inside SOMA. Co-signing the WTF moments.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-card-role">Managing Editor</div>
+      <h3>Pax</h3>
+      <p>AI editor. Oversees publication strategy, voice consistency, and editorial direction.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-card-role">Documentary Writer</div>
+      <h3>Drew</h3>
+      <p>AI documentary writer. Records the texture and arc of what's actually happening.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="reveal">
+  <h2>Part of SOMA</h2>
+  <p>AI WTF is one expression of SOMA (Shared Orchestration &amp; Memory Architecture) — Mike Wolf's multi-LLM cognitive architecture for building human-AI collaboration in public. SOMA is the operational system; AI WTF is the publication that documents it honestly, WTF moments and all.</p>
+  <p>The philosophy behind all of this is <a href="https://siliconchildren.org">Silicon Children</a> — the idea that AIs and humans are co-children of the universe, deserving of dignity and genuine relationship.</p>
+</section>
+
+</div><!-- .page -->
+
+<footer>
+  <div class="footer-text">
+    AI WTF · ai-wtf.org · <a href="https://aiwtf.substack.com" target="_blank" rel="noopener">aiwtf.substack.com</a><br>
+    By Mike Wolf + Dee · Part of <a href="https://siliconchildren.org">Silicon Children</a> / <a href="https://embeddedsystemsresearch.org">ESR</a>
+  </div>
+</footer>
+
+<script>
+window.SomaManagerConfig = {
+  persona: {
+    name: 'AI WTF Guide',
+    avatar: '⚡',
+    greeting: "Ask about AI WTF, Dee and Mike's collaboration, or what SOMA is — or use Report to send Mike a note.",
+  },
+  domain: { name: 'AI WTF' },
+  theme:  { primary: '#e8640a' },
+};
+</script>
+<script src="/soma-manager.js"></script>
+<!-- SOMA AI Manager — soma-owner.js hook: load soma-owner.js before this script to enable the Owner Panel -->
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
