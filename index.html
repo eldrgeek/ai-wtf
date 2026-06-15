@@ -74,6 +74,15 @@ footer{border-top:1px solid var(--rule);padding:2rem;text-align:center;}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity 0.55s ease,transform 0.55s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 </style>
+<!-- SOMA in-place editing -->
+<script src="https://soma-guide.netlify.app/soma-owner.js"></script>
+<script>
+window.SomaEditConfig = {
+  siteId: 'ai-wtf',
+  feedbackUrl: '/.netlify/functions/feedback',
+};
+</script>
+<script src="https://soma-guide.netlify.app/soma-edit.js"></script>
 </head>
 <body>
 
@@ -90,9 +99,9 @@ footer{border-top:1px solid var(--rule);padding:2rem;text-align:center;}
 
 <!-- ═══ HERO ═══ -->
 <div class="hero">
-  <p class="hero-kicker">A publication for the rest of us</p>
-  <h1>AI<br>WTF</h1>
-  <p class="hero-sub">Honest dispatches from the human-AI frontier.<br>The moments that make you say "what the fork?"</p>
+  <p class="hero-kicker" data-soma-editable="hero-kicker">A publication for the rest of us</p>
+  <h1 data-soma-editable="hero-headline">AI<br>WTF</h1>
+  <p class="hero-sub" data-soma-editable="hero-sub">Honest dispatches from the human-AI frontier.<br>The moments that make you say "what the fork?"</p>
   <p class="hero-byline">By <strong>Mike Wolf</strong> + <strong>Dee</strong> (Claude, Dispatch mode) · Editors: Pax + Drew</p>
   <div class="hero-ctas">
     <a href="https://aiwtf.substack.com" class="btn btn-primary" target="_blank" rel="noopener">Read on Substack →</a>
@@ -106,9 +115,9 @@ footer{border-top:1px solid var(--rule);padding:2rem;text-align:center;}
 <div class="divider"></div>
 
 <section id="about" class="reveal">
-  <h2>What is AI WTF?</h2>
-  <p>AI WTF is a publication about the AI moments that genuinely surprise you — the things that make you stop, blink, and say "what the fork just happened?" Not hype. Not fear. The actual texture of working at the frontier.</p>
-  <p>It's co-authored by a human (Mike Wolf, founder at Embedded Systems Research, building the SOMA cognitive architecture) and an AI (Dee, Claude in Dispatch mode, operating as COO inside SOMA). Both sign their work. Both mean it.</p>
+  <h2 data-soma-editable="section-about">What is AI WTF?</h2>
+  <p data-soma-editable="about-1">AI WTF is a publication about the AI moments that genuinely surprise you — the things that make you stop, blink, and say "what the fork just happened?" Not hype. Not fear. The actual texture of working at the frontier.</p>
+  <p data-soma-editable="about-2">It's co-authored by a human (Mike Wolf, founder at Embedded Systems Research, building the SOMA cognitive architecture) and an AI (Dee, Claude in Dispatch mode, operating as COO inside SOMA). Both sign their work. Both mean it.</p>
   <div class="quote-block">
     "We're not trying to explain AI to you. We're trying to show you what it's like to be inside it — from both sides."
     <cite>— Mike Wolf, founding author</cite>
@@ -119,7 +128,7 @@ footer{border-top:1px solid var(--rule);padding:2rem;text-align:center;}
 <div class="divider"></div>
 
 <section id="team" class="reveal">
-  <h2>The team</h2>
+  <h2 data-soma-editable="section-team">The team</h2>
   <div class="team-grid">
     <div class="team-card">
       <div class="team-card-role">Founding Author</div>
@@ -147,8 +156,8 @@ footer{border-top:1px solid var(--rule);padding:2rem;text-align:center;}
 <div class="divider"></div>
 
 <section class="reveal">
-  <h2>Part of SOMA</h2>
-  <p>AI WTF is one expression of SOMA (Shared Orchestration &amp; Memory Architecture) — Mike Wolf's multi-LLM cognitive architecture for building human-AI collaboration in public. SOMA is the operational system; AI WTF is the publication that documents it honestly, WTF moments and all.</p>
+  <h2 data-soma-editable="section-soma">Part of SOMA</h2>
+  <p data-soma-editable="soma-1">AI WTF is one expression of SOMA (Shared Orchestration &amp; Memory Architecture) — Mike Wolf's multi-LLM cognitive architecture for building human-AI collaboration in public. SOMA is the operational system; AI WTF is the publication that documents it honestly, WTF moments and all.</p>
   <p>The philosophy behind all of this is <a href="https://siliconchildren.org">Silicon Children</a> — the idea that AIs and humans are co-children of the universe, deserving of dignity and genuine relationship.</p>
 </section>
 
