@@ -70,6 +70,25 @@ footer{border-top:1px solid var(--rule);padding:2rem;text-align:center;}
 .footer-text a{color:var(--text-faint);text-decoration:none;}
 .footer-text a:hover{color:var(--orange);}
 
+/* ── TOUR CARD (Show-Don't-Tell, SOMA-APP-STANDARD §7) ── */
+.tour-card{display:grid;grid-template-columns:200px 1fr;gap:1.25rem;align-items:center;background:var(--surface);border:1px solid var(--orange-border);border-radius:10px;padding:1.1rem;margin-top:2.5rem;max-width:560px;}
+.tour-poster{position:relative;display:block;width:100%;border:1px solid var(--rule);border-radius:6px;overflow:hidden;padding:0;background:none;cursor:pointer;}
+.tour-poster img{display:block;width:100%;height:auto;}
+.tour-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#fff;background:rgba(15,14,13,0.35);transition:background 0.2s;}
+.tour-poster:hover .tour-play{background:rgba(232,100,10,0.35);}
+.tour-label{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--orange);display:block;margin-bottom:0.4rem;}
+.tour-meta h4{font-family:var(--display);font-size:0.95rem;font-weight:600;margin-bottom:0.3rem;}
+.tour-meta h4 button{font:inherit;color:var(--text);background:none;border:none;padding:0;cursor:pointer;text-decoration:underline;text-decoration-color:var(--orange-border);text-underline-offset:3px;}
+.tour-meta h4 button:hover{text-decoration-color:var(--orange);}
+.tour-desc{font-family:var(--serif);font-style:italic;font-size:0.85rem;color:var(--text-dim);line-height:1.6;margin:0;}
+#tour-lightbox{border:none;padding:0;background:transparent;max-width:min(92vw,960px);width:100%;margin:auto;}
+#tour-lightbox::backdrop{background:rgba(15,14,13,0.85);}
+#tour-lightbox video{display:block;width:100%;height:auto;background:#000;}
+.tour-frame{position:relative;}
+.tour-close{position:absolute;top:0.6rem;right:0.6rem;z-index:2;font-family:var(--mono);font-size:0.7rem;color:var(--text);background:rgba(15,14,13,0.7);border:1px solid var(--rule);border-radius:4px;padding:0.35rem 0.6rem;cursor:pointer;letter-spacing:0.1em;}
+.tour-close:hover{border-color:var(--orange-border);}
+@media(max-width:560px){.tour-card{grid-template-columns:1fr;}}
+
 /* ── REVEAL ── */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity 0.55s ease,transform 0.55s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
@@ -107,7 +126,30 @@ window.SomaEditConfig = {
     <a href="https://aiwtf.substack.com" class="btn btn-primary" target="_blank" rel="noopener">Read on Substack →</a>
     <a href="#about" class="btn btn-ghost">What is this?</a>
   </div>
+
+  <!-- ═══ TOUR CARD (Show-Don't-Tell, SOMA-APP-STANDARD §7) ═══ -->
+  <div class="tour-card">
+    <button class="tour-poster" id="tour-open" aria-label="Play the site tour video, about ninety seconds">
+      <img src="videos/visitor-tour-poster.jpg" alt="Opening frame of the AI WTF site tour" loading="lazy">
+      <span class="tour-play" aria-hidden="true">▶</span>
+    </button>
+    <div class="tour-meta">
+      <span class="tour-label">Site tour</span>
+      <h4><button id="tour-open-2">What the fork is this site? — 90 sec</button></h4>
+      <p class="tour-desc">A narrated pass through the masthead — the human, the AIs, and the WTF moments they sign together.</p>
+    </div>
+  </div>
 </div>
+
+<dialog id="tour-lightbox" aria-label="Site tour video">
+  <div class="tour-frame">
+    <button class="tour-close" id="tour-close">CLOSE ✕</button>
+    <video id="tour-video" controls preload="none" poster="videos/visitor-tour-poster.jpg" playsinline>
+      <source src="videos/visitor-tour.mp4" type="video/mp4">
+      <track kind="chapters" src="videos/visitor-tour.vtt" srclang="en" label="Chapters" default>
+    </video>
+  </div>
+</dialog>
 
 <!-- ═══ CONTENT ═══ -->
 <div class="page">
@@ -185,6 +227,18 @@ window.SomaManagerConfig = {
 <!-- SOMA AI Manager — soma-owner.js hook: load soma-owner.js before this script to enable the Owner Panel -->
 
 <script>
+// Tour lightbox — opens only on explicit click; never autoplays on page load.
+(function () {
+  const box = document.getElementById('tour-lightbox');
+  const vid = document.getElementById('tour-video');
+  const open = () => { box.showModal(); vid.play().catch(() => {}); };
+  document.getElementById('tour-open').addEventListener('click', open);
+  document.getElementById('tour-open-2').addEventListener('click', open);
+  document.getElementById('tour-close').addEventListener('click', () => box.close());
+  box.addEventListener('click', (e) => { if (e.target === box) box.close(); });
+  box.addEventListener('close', () => { vid.pause(); });
+})();
+
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
 }, {threshold:0.1});
