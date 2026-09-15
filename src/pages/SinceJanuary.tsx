@@ -272,9 +272,9 @@ export default function SinceJanuary() {
               <a href="https://70yearswtf.substack.com/subscribe" target="_blank" rel="noopener noreferrer" className="no-underline">
                 <Card className="h-full bg-card border-border/50 hover:border-primary/30 transition-colors">
                   <CardContent className="pt-6">
-                    <p className="text-lg font-semibold text-foreground mb-1">Follow Mike's AI adventures</p>
+                    <p className="text-lg font-semibold text-foreground mb-1">Follow Mike's writing</p>
                     <p className="text-muted-foreground text-sm m-0">
-                      Subscribe to Mike's Substack. New writing about working with AI will appear there.
+                      Subscribe to 70 Years Old. WTF!, Mike's Substack, where “Sending My AI to School” first appeared.
                     </p>
                   </CardContent>
                 </Card>
