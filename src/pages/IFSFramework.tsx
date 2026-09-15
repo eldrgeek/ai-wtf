@@ -174,7 +174,7 @@ function IFSFramework() {
               <ul className="list-disc pl-6 space-y-2">
                 <li><strong>AutoMike</strong> — The automation-building part, the coder, the systems thinker</li>
                 <li><strong>MiraMind</strong> — Connected to his daughter Mira's perspective</li>
-                <li><strong>JanMind</strong> — Connected to his friend Jan Fergus</li>
+                <li><strong>JanMind</strong> — Connected to a close friend</li>
                 <li><strong>BuddhaMind</strong> — The contemplative, non-attached observer</li>
                 <li><strong>ChristMind</strong> — Connected to forgiveness, love, ACIM principles</li>
                 <li><strong>Temporal selves</strong> — Past Mikes at different ages, each with their own perspective</li>

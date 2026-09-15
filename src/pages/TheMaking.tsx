@@ -155,7 +155,7 @@ export default function TheMaking() {
                 </div>
                 <div className="flex-grow">
                   <div className="bg-background/50 p-4 rounded-lg border border-border">
-                    <p className="text-foreground font-semibold">Mike's 83rd birthday</p>
+                    <p className="text-foreground font-semibold">New Year's Day</p>
                     <p className="text-muted-foreground text-sm">The idea arrives: build ai-wtf.org</p>
                   </div>
                 </div>
