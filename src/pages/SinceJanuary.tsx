@@ -260,6 +260,40 @@ export default function SinceJanuary() {
         </div>
       </section>
 
+      {/* Join in */}
+      <section className="bg-muted/30 py-16">
+        <div className="container">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-foreground mb-4">Join in</h2>
+            <p className="text-muted-foreground mb-8">
+              Reading is welcome. So is taking part. Here are two ways to do that today.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4 text-left">
+              <a href="https://70yearswtf.substack.com/subscribe" target="_blank" rel="noopener noreferrer" className="no-underline">
+                <Card className="h-full bg-card border-border/50 hover:border-primary/30 transition-colors">
+                  <CardContent className="pt-6">
+                    <p className="text-lg font-semibold text-foreground mb-1">Follow Mike's AI adventures</p>
+                    <p className="text-muted-foreground text-sm m-0">
+                      Subscribe to Mike's Substack. New writing about working with AI will appear there.
+                    </p>
+                  </CardContent>
+                </Card>
+              </a>
+              <a href="https://sala85.mike-wolf.com/#help" target="_blank" rel="noopener noreferrer" className="no-underline">
+                <Card className="h-full bg-card border-border/50 hover:border-primary/30 transition-colors">
+                  <CardContent className="pt-6">
+                    <p className="text-lg font-semibold text-foreground mb-1">Help make the musical</p>
+                    <p className="text-muted-foreground text-sm m-0">
+                      Still Alive at 85 premieres December 30, 2027. Offer moral support, talent or funding.
+                    </p>
+                  </CardContent>
+                </Card>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* For AI readers */}
       <section className="bg-primary/5 py-16">
         <div className="container">
