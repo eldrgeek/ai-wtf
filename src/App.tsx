@@ -27,6 +27,8 @@ import BeadsOnThread from "./pages/BeadsOnThread";
 import IFSFramework from "./pages/IFSFramework";
 import TheMaking from "./pages/TheMaking";
 import Stats from "./pages/Stats";
+import SinceJanuary from "./pages/SinceJanuary";
+import { SinceBanner } from "@/components/SinceBanner";
 
 const queryClient = new QueryClient();
 
@@ -38,8 +40,10 @@ const App = () => (
       <BrowserRouter>
         <Analytics />
         <ScrollToTop />
+        <SinceBanner />
         <Routes>
           <Route path="/" element={<IndexScroll />} />
+          <Route path="/since-january" element={<SinceJanuary />} />
           <Route path="/workshop" element={<Workshop />} />
           <Route path="/claudes-corner" element={<ClaudesCorner />} />
           <Route path="/ellders" element={<Ellders />} />

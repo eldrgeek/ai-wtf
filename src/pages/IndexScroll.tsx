@@ -1202,8 +1202,8 @@ function IndexScroll() {
             </p>
             <p>
               The code is on GitHub at{" "}
-              <a href="https://github.com/eldrgeek/agreed-vision" className="text-[#d4a853] hover:underline" target="_blank" rel="noopener noreferrer">
-                github.com/eldrgeek/agreed-vision
+              <a href="https://github.com/eldrgeek/ai-wtf" className="text-[#d4a853] hover:underline" target="_blank" rel="noopener noreferrer">
+                github.com/eldrgeek/ai-wtf
               </a>.
               The development process, including the challenges and breakthroughs, is documented in the{" "}
               <Link to="/workshop" className="text-[#d4a853] hover:underline">Workshop</Link>.

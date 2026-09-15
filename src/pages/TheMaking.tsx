@@ -275,7 +275,7 @@ export default function TheMaking() {
                               </div>
                             </div>
                             <a
-                              href={`https://github.com/eldrgeek/agreed-vision/blob/main/docs/${doc.filename}`}
+                              href={`https://github.com/eldrgeek/ai-wtf/blob/main/docs/${doc.filename}`}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="flex-shrink-0 text-primary hover:text-primary/80 transition-colors"

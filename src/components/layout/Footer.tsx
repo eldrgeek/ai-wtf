@@ -18,6 +18,9 @@ export function Footer() {
           <div>
             <h3 className="font-sans text-lg font-semibold mb-4 text-foreground">Explore</h3>
             <nav className="flex flex-col gap-2">
+              <Link to="/since-january" className="text-muted-foreground hover:text-accent no-underline text-base">
+                Since January
+              </Link>
               <Link to="/workshop" className="text-muted-foreground hover:text-accent no-underline text-base">
                 The Workshop
               </Link>
@@ -62,6 +65,14 @@ export function Footer() {
                 className="text-muted-foreground hover:text-accent no-underline text-base inline-flex items-center gap-1"
               >
                 70 Years Old. WTF! <ExternalLink className="h-3 w-3" />
+              </a>
+              <a
+                href="https://mike-wolf.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-accent no-underline text-base inline-flex items-center gap-1"
+              >
+                mike-wolf.com <ExternalLink className="h-3 w-3" />
               </a>
               <a
                 href="https://github.com/eldrgeek"
