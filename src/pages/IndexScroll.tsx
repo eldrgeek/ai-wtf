@@ -620,6 +620,19 @@ function IndexScroll() {
         >
           WTF?
         </h1>
+
+        {/* Scroll hint — the opening screen fills the viewport, so without this
+            nothing tells a first-time visitor there is a site below it.
+            Fades in after the AI?/WTF? animation has had its moment. */}
+        <button
+          onClick={() => scrollToSection(screen2Ref)}
+          aria-label="Scroll down for more"
+          className="absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 bg-transparent border-none cursor-pointer text-[#d4a853] hover:text-[#f5f0e6] transition-colors"
+          style={{ opacity: 0, animation: 'fadeIn 1.2s ease-out 2.6s forwards' }}
+        >
+          <span className="text-sm tracking-wide">there's more</span>
+          <ArrowDown className={`w-8 h-8 ${prefersReducedMotion ? '' : 'animate-bounce'}`} />
+        </button>
       </section>
 
       )}
