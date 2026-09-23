@@ -7,6 +7,9 @@ import { MessageCircle, Lightbulb, Music, Users, Heart, Brain, Code, FileText, A
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
+import { Header, Footer } from "@/components/layout";
+import { FrontDoor } from "@/components/FrontDoor";
+import { AlsoOnSubstack } from "@/components/AlsoOnSubstack";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,10 +18,7 @@ function IndexScroll() {
   const [searchParams] = useSearchParams();
   const showDiagnostics = searchParams.get('debug') === 'true';
   
-  const screen1Ref = useRef<HTMLDivElement>(null);
   const welcomeTextRef = useRef<HTMLHeadingElement>(null);
-  const aiTextRef = useRef<HTMLHeadingElement>(null);
-  const wtfTextRef = useRef<HTMLHeadingElement>(null);
   const screen2Ref = useRef<HTMLDivElement>(null);
   const screen3Ref = useRef<HTMLDivElement>(null);
   const screen4Ref = useRef<HTMLDivElement>(null);
@@ -41,13 +41,6 @@ function IndexScroll() {
     screen2Opacity: 1,
     screen3Opacity: 1,
   });
-  
-  // Check if user has seen intro before
-  const [hasSeenIntro, setHasSeenIntro] = useState(() => {
-    return localStorage.getItem('ai-wtf-seen-intro') === 'true';
-  });
-  
-  const [showResetButton, setShowResetButton] = useState(false);
   
   // Scroll to section function with smooth animation
   const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
@@ -79,13 +72,6 @@ function IndexScroll() {
     requestAnimationFrame(animation);
   };
   
-  // Handle reset button
-  const handleReset = () => {
-    localStorage.removeItem('ai-wtf-seen-intro');
-    setHasSeenIntro(false);
-    window.location.reload();
-  };
-
   // Typewriter effect for overlay
   useEffect(() => {
     if (showHowMadeOverlay) {
@@ -108,109 +94,16 @@ function IndexScroll() {
   }, [showHowMadeOverlay]);
 
   useEffect(() => {
-    // If user has seen intro, scroll to pathways section
-    if (hasSeenIntro && screen6Ref.current) {
-      setTimeout(() => {
-        screen6Ref.current?.scrollIntoView({ behavior: 'instant' });
-      }, 100);
-    }
-  }, [hasSeenIntro]);
-  
-  useEffect(() => {
     setDiagnostic(prev => ({ ...prev, reducedMotion: prefersReducedMotion }));
     
-    // TEMPORARILY DISABLED: Bypassing reduced motion check for testing
-    // if (prefersReducedMotion) {
-    //   // Show all content immediately, no animations
-    //   console.log('Animations disabled: prefers-reduced-motion is enabled');
-    //   return;
-    // }
-    
-    console.log('Initializing scroll animations (forced on for testing)');
+    // Re-enabled 2026-09-23 (redesign-verso): with no animations registered,
+    // every section renders in its natural, fully visible state.
+    if (prefersReducedMotion) {
+      return;
+    }
     setDiagnostic(prev => ({ ...prev, animationsInitialized: true }));
 
     const ctx = gsap.context(() => {
-      // Screen 1: AI? / WTF? sequence - each fills viewport then scrolls up
-      if (aiTextRef.current && wtfTextRef.current && screen1Ref.current) {
-        const timeline = gsap.timeline();
-        
-        // AI? appears and grows
-        timeline.fromTo(aiTextRef.current,
-          { opacity: 0, scale: 0.3 },
-          { 
-            opacity: 1, 
-            scale: 2.5,
-            duration: 0.8, 
-            ease: 'power2.out',
-          }
-        );
-        
-        // AI? holds for a moment
-        timeline.to(aiTextRef.current, { duration: 0.5 });
-        
-        // AI? scrolls up and fades
-        timeline.to(aiTextRef.current, {
-          y: -800,
-          opacity: 0,
-          duration: 0.6,
-          ease: 'power2.in',
-        });
-        
-        // WTF? appears and grows
-        timeline.fromTo(wtfTextRef.current,
-          { opacity: 0, scale: 0.3, y: 0 },
-          { 
-            opacity: 1, 
-            scale: 2.5,
-            duration: 0.8, 
-            ease: 'power2.out',
-          },
-          '-=0.2' // Slight overlap with AI? exit
-        );
-        
-        // WTF? holds
-        timeline.to(wtfTextRef.current, { duration: 0.5 });
-        
-        // WTF? scrolls up and fades
-        timeline.to(wtfTextRef.current, {
-          y: -800,
-          opacity: 0,
-          duration: 0.6,
-          ease: 'power2.in',
-          onComplete: () => {
-            // Mark intro as seen for next visit only
-            localStorage.setItem('ai-wtf-seen-intro', 'true');
-            // Auto-scroll to "We made this" section
-            setTimeout(() => {
-              screen2Ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 300);
-          }
-        });
-
-        // Shrink and fade as user scrolls away (if they scroll during animation)
-        ScrollTrigger.create({
-          trigger: screen1Ref.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 1,
-          onUpdate: (self) => {
-            const progress = self.progress;
-            if (aiTextRef.current) {
-              gsap.to(aiTextRef.current, {
-                opacity: Math.max(0, 1 - progress * 2),
-                duration: 0
-              });
-            }
-            if (wtfTextRef.current) {
-              gsap.to(wtfTextRef.current, {
-                opacity: Math.max(0, 1 - progress * 2),
-                duration: 0
-              });
-            }
-          }
-        });
-      }
-
       // Screen 2: Who Made This - sequential reveal with fade in/out
       if (screen2Ref.current) {
         const tl = gsap.timeline({
@@ -414,16 +307,6 @@ function IndexScroll() {
 
       // Screen 6: Pathways - sequential reveal with more time to absorb
       if (screen6Ref.current) {
-        // Set localStorage when user reaches this section
-        ScrollTrigger.create({
-          trigger: screen6Ref.current,
-          start: 'top center',
-          onEnter: () => {
-            localStorage.setItem('ai-wtf-seen-intro', 'true');
-            console.log('Set intro seen flag');
-          }
-        });
-        
         // Sequential card reveal - one at a time with longer stagger
         gsap.from('.pathway-card', {
           scrollTrigger: {
@@ -532,6 +415,7 @@ function IndexScroll() {
 
   return (
     <div className="scroll-container">
+      <Header tone="dark" />
       {/* Diagnostic Panel - Only show with ?debug=true */}
       {showDiagnostics && (
         <>
@@ -561,84 +445,15 @@ function IndexScroll() {
             </div>
           </div>
 
-          {/* Reset Button - visible on hover in top-left */}
-          <div
-            style={{
-              position: 'fixed',
-              top: '20px',
-              left: '20px',
-              zIndex: 9999,
-            }}
-            onMouseEnter={() => setShowResetButton(true)}
-            onMouseLeave={() => setShowResetButton(false)}
-          >
-            <button
-              onClick={handleReset}
-              style={{
-                opacity: showResetButton ? 1 : 0,
-                transition: 'opacity 0.3s ease',
-                background: 'rgba(255, 0, 0, 0.8)',
-                color: '#fff',
-                padding: '10px 15px',
-                borderRadius: '8px',
-                border: 'none',
-                cursor: 'pointer',
-                fontFamily: 'monospace',
-                fontSize: '12px',
-              }}
-            >
-              🔄 Reset Intro
-            </button>
-            {!showResetButton && (
-              <div style={{
-                width: '40px',
-                height: '40px',
-                background: 'transparent',
-              }} />
-            )}
-          </div>
         </>
       )}
 
-      {/* Screen 1: AI? / WTF? - Full viewport */}
-      {!hasSeenIntro && (
-      <section 
-        ref={screen1Ref}
-        className="screen-1 h-screen flex items-center justify-center bg-gradient-to-b from-[#0a1628] to-[#0d1a2d] relative overflow-hidden"
-      >
-        <h1 
-          ref={aiTextRef}
-          className="text-8xl md:text-9xl font-bold text-[#f5f0e6] tracking-wide absolute"
-          style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
-        >
-          AI?
-        </h1>
-        <h1 
-          ref={wtfTextRef}
-          className="text-7xl md:text-8xl font-bold text-[#f5f0e6] tracking-wide absolute"
-          style={{ fontFamily: 'system-ui, -apple-system, sans-serif', opacity: 0 }}
-        >
-          WTF?
-        </h1>
+      {/* Front door: Verso, the AI host, and the question cloud (SOMA-APP-STANDARD §22) */}
+      <FrontDoor readAnchor="#made-this" />
 
-        {/* Scroll hint — the opening screen fills the viewport, so without this
-            nothing tells a first-time visitor there is a site below it.
-            Fades in after the AI?/WTF? animation has had its moment. */}
-        <button
-          onClick={() => scrollToSection(screen2Ref)}
-          aria-label="Scroll down for more"
-          className="absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 bg-transparent border-none cursor-pointer text-[#d4a853] hover:text-[#f5f0e6] transition-colors"
-          style={{ opacity: 0, animation: 'fadeIn 1.2s ease-out 2.6s forwards' }}
-        >
-          <span className="text-sm tracking-wide">there's more</span>
-          <ArrowDown className={`w-8 h-8 ${prefersReducedMotion ? '' : 'animate-bounce'}`} />
-        </button>
-      </section>
-
-      )}
-      
       {/* Screen 2: Who Made This */}
       <section 
+        id="made-this"
         ref={screen2Ref}
         className="screen-2 flex items-center justify-center bg-[#0d1a2d] py-16 px-4 relative"
       >
@@ -710,6 +525,7 @@ function IndexScroll() {
 
       {/* About the Collaboration Section */}
       <section 
+        id="about"
         ref={aboutCollabRef}
         className="bg-gradient-to-b from-[#0d1a2d] to-[#0f1d30] py-20 px-4 relative overflow-hidden"
       >
@@ -776,7 +592,7 @@ function IndexScroll() {
       </section>
 
       {/* Hero Section */}
-      <section className="py-16 bg-[#0f1d30]">
+      <section id="hero" className="py-16 bg-[#0f1d30]">
         <div className="container max-w-6xl mx-auto px-4">
           <div className="w-full rounded-lg overflow-hidden mb-8">
             <img
@@ -915,6 +731,7 @@ function IndexScroll() {
 
       {/* Screen 6: Pathways - Always visible */}
       <section 
+        id="pathways"
         ref={screen6Ref}
         className="screen-6 flex items-center justify-center bg-gradient-to-b from-[#0a1628] to-[#0d1a2d] py-20 px-4"
       >
@@ -1057,11 +874,12 @@ function IndexScroll() {
 
       {/* Additional Content Sections - Preserved from original */}
       {/* Welcome Message - Full Text */}
-      <section className="bg-[#0f1d30] py-8 px-4">
+      <section id="welcome" className="bg-[#0f1d30] py-8 px-4 scroll-mt-20">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-display text-[#f5f0e6] mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-display text-[#f5f0e6] mb-2 text-center">
             Welcome, Human, AI, Whatever You Are
           </h2>
+          <AlsoOnSubstack route="/" tone="dark" className="text-center mb-8" />
           <div className="prose prose-lg max-w-none text-[#b8a9c9] space-y-4">
             <p>
               You, who are reading this may be a human, or an AI, or something we don't have a word for yet.
@@ -1110,7 +928,7 @@ function IndexScroll() {
       </section>
 
       {/* Beyond the Ruts */}
-      <section className="bg-[#0d1a2d] py-8 px-4">
+      <section id="beyond-ruts" className="bg-[#0d1a2d] py-8 px-4 scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-display text-[#f5f0e6] mb-8 text-center">Beyond the Ruts</h2>
           <div className="prose prose-lg max-w-none text-[#b8a9c9] space-y-4">
@@ -1159,7 +977,7 @@ function IndexScroll() {
       </section>
 
       {/* For AI Visitors */}
-      <section className="bg-[#0f1d30] py-8 px-4">
+      <section id="for-ai" className="bg-[#0f1d30] py-8 px-4 scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-display text-[#81b29a] mb-8 text-center">For AI Visitors</h2>
           <div className="prose prose-lg max-w-none text-[#b8a9c9] space-y-4">
@@ -1192,7 +1010,7 @@ function IndexScroll() {
       </section>
 
       {/* How This Site Was Made */}
-      <section className="bg-[#0a1628] py-8 px-4">
+      <section id="how-made" className="bg-[#0a1628] py-8 px-4 scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-display text-[#f5f0e6] mb-8 text-center">How This Site Was Made</h2>
           <div className="prose prose-lg max-w-none text-[#b8a9c9] space-y-4">
@@ -1259,8 +1077,7 @@ function IndexScroll() {
         </div>
       </section>
 
-      {/* Footer Spacer */}
-      <div className="h-32 bg-[#0d1a2d]"></div>
+      <Footer tone="dark" />
 
       {/* Mike Dialog */}
       <Dialog open={showMikeDialog} onOpenChange={setShowMikeDialog}>
