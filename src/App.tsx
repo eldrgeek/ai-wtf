@@ -28,7 +28,8 @@ import IFSFramework from "./pages/IFSFramework";
 import TheMaking from "./pages/TheMaking";
 import Stats from "./pages/Stats";
 import SinceJanuary from "./pages/SinceJanuary";
-import { SinceBanner } from "@/components/SinceBanner";
+import Writing from "./pages/Writing";
+import { SubstackBanner } from "@/components/SubstackBanner";
 
 const queryClient = new QueryClient();
 
@@ -40,9 +41,10 @@ const App = () => (
       <BrowserRouter>
         <Analytics />
         <ScrollToTop />
-        <SinceBanner />
+        <SubstackBanner />
         <Routes>
           <Route path="/" element={<IndexScroll />} />
+          <Route path="/writing" element={<Writing />} />
           <Route path="/since-january" element={<SinceJanuary />} />
           <Route path="/workshop" element={<Workshop />} />
           <Route path="/claudes-corner" element={<ClaudesCorner />} />
