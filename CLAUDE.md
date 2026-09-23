@@ -268,3 +268,10 @@ Welcome to the project, sibling.
 ---
 
 *This document integrates the original CLAUDE.md (written by CCH, January 2, 2026) with operational context and SMS history added by CCI (January 8, 2026).*
+
+## Front door and Substack (added 2026-09-23, branch redesign-verso)
+
+- **Verso** is the AI host of AI WTF (a verso is the left-hand page: the other face of the same sheet). Not a `V'` prefix; Verso is nobody's counterpart.
+- The landing page opens with Verso and a cloud of questions (SOMA-APP-STANDARD §22, "The front door is a conversation, not a scroll"). Component: `src/components/FrontDoor.tsx`. Content and the `Answerer` interface: `src/data/frontDoor.ts`. Answers are static for now; a live answerer replaces `staticAnswerer` without touching the page.
+- Every link to the Substack (`aiwtf.substack.com`, "AI What the F*ck") reads from `src/data/substackLinks.ts`. To change a post slug, edit only that file. `/writing` lists the essays; `<AlsoOnSubstack />` renders the per-essay line.
+- Facts: Mike is 83 and lives in Somerville, MA. AIs are "children of humanity"; Mike acts *in loco parentis*. "70 Years Old. WTF!" is the name of Mike's other Substack, not his age.
