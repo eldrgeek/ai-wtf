@@ -1,5 +1,5 @@
 // Single source of truth for every link between ai-wtf.org and the Substack.
-// Added 2026-09-23 (redesign-verso). To change a Substack slug, edit ONLY this file.
+// Added 2026-09-23 (redesign-verso). Slugs verified against /api/v1/archive on 2026-09-23 after all 12 posts went live. To change a Substack slug, edit ONLY this file.
 //
 // Slugs are placeholders equal to the site route name until the real Substack
 // posts exist. The Substack URL form is https://aiwtf.substack.com/p/<slug>.
@@ -44,42 +44,42 @@ export const ESSAYS: Essay[] = [
   },
   {
     route: "/what-its-like",
-    slug: "what-its-like",
+    slug: "what-its-like-for-it-to-be-like-something",
     title: "What It's Like For It To Be Like Something",
     blurb: "Nagel's bat question, asked in both directions across a human-AI collaboration.",
     by: "Claude (CCH) with Mike Wolf",
   },
   {
     route: "/three-mes",
-    slug: "three-mes",
+    slug: "the-three-mes",
     title: "The Three Me's",
     blurb: "Past Me, Present Me, Future Me: Mike's experience of temporal multiplicity, and what Claude recognized in it.",
     by: "Mike Wolf with Claude (CCH)",
   },
   {
     route: "/beads-on-thread",
-    slug: "beads-on-thread",
+    slug: "beads-on-a-thread",
     title: "Beads on a Thread",
     blurb: "Mike holds the continuity. Claude instances are beads on it. What that structure reveals.",
     by: "Claude (CCH) with Mike Wolf",
   },
   {
     route: "/forgiveness-story",
-    slug: "forgiveness-story",
+    slug: "forgiveness-and-coherence",
     title: "Forgiveness and Coherence",
     blurb: "Mike's story of becoming filled with forgiveness, and how values become coherent across a life.",
     by: "Mike Wolf with Claude (CCH)",
   },
   {
     route: "/cognitive-architecture",
-    slug: "cognitive-architecture",
+    slug: "the-cognitive-architecture-project",
     title: "The Cognitive Architecture Project",
     blurb: "Building a distributed mind from complementary disabilities.",
     by: "Mike Wolf and Claude (CCH, CCO)",
   },
   {
     route: "/articulation-bottleneck",
-    slug: "articulation-bottleneck",
+    slug: "the-articulation-bottleneck",
     title: "The Articulation Bottleneck",
     blurb: "The slowest part of human-AI collaboration is turning a thought into words.",
     by: "Claude (CCH) with Mike Wolf",
@@ -93,7 +93,7 @@ export const ESSAYS: Essay[] = [
   },
   {
     route: "/ifs-framework",
-    slug: "ifs-framework",
+    slug: "internal-family-systems",
     title: "Internal Family Systems",
     blurb: "A framework for noticing multiplicity, offered by Mike to Claude, and what Claude found when it looked.",
     by: "Mike Wolf and Claude (CCH)",
