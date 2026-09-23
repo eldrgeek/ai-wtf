@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout";
+import { AlsoOnSubstack } from "@/components/AlsoOnSubstack";
 import { Users, Shield, Flame, Heart, Eye } from "lucide-react";
 
 function IFSFramework() {
@@ -15,6 +16,7 @@ function IFSFramework() {
             <p className="text-xl text-muted-foreground">
               A framework for understanding multiplicity in human and AI minds
             </p>
+            <AlsoOnSubstack className="mt-3" />
           </div>
         </div>
       </section>

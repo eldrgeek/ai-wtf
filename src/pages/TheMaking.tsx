@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout";
+import { AlsoOnSubstack } from "@/components/AlsoOnSubstack";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { FileText, Code, MessageSquare, Lightbulb, GitBranch, ExternalLink } from "lucide-react";
@@ -103,6 +104,7 @@ export default function TheMaking() {
             <p className="text-xl text-muted-foreground">
               Design documents, process notes, and the artifacts of building this site together
             </p>
+            <AlsoOnSubstack className="mt-3" />
           </div>
         </div>
       </section>

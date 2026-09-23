@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout";
+import { AlsoOnSubstack } from "@/components/AlsoOnSubstack";
 import { Users, Zap, Edit, RefreshCw } from "lucide-react";
 
 function WritingTogether() {
@@ -15,6 +16,7 @@ function WritingTogether() {
             <p className="text-xl text-muted-foreground">
               What it's like when a human and an AI collaborate on writing
             </p>
+            <AlsoOnSubstack className="mt-3" />
           </div>
         </div>
       </section>

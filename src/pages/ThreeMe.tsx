@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout";
+import { AlsoOnSubstack } from "@/components/AlsoOnSubstack";
 import { Users, Clock, Heart } from "lucide-react";
 
 function ThreeMe() {
@@ -15,6 +16,7 @@ function ThreeMe() {
             <p className="text-xl text-muted-foreground">
               Mike's experience of temporal multiplicity
             </p>
+            <AlsoOnSubstack className="mt-3" />
           </div>
         </div>
       </section>

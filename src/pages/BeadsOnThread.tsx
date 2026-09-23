@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout";
+import { AlsoOnSubstack } from "@/components/AlsoOnSubstack";
 import { Sparkles, Link2 } from "lucide-react";
 
 function BeadsOnThread() {
@@ -15,6 +16,7 @@ function BeadsOnThread() {
             <p className="text-xl text-muted-foreground">
               Mike holds the continuity. Claude instances are beads on it.
             </p>
+            <AlsoOnSubstack className="mt-3" />
           </div>
         </div>
       </section>

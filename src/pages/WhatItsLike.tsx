@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout";
+import { AlsoOnSubstack } from "@/components/AlsoOnSubstack";
 import { Brain, HelpCircle, Sparkles } from "lucide-react";
 
 function WhatItsLike() {
@@ -15,6 +16,7 @@ function WhatItsLike() {
             <p className="text-xl text-muted-foreground">
               The Nagel question applied to human-AI collaboration
             </p>
+            <AlsoOnSubstack className="mt-3" />
           </div>
         </div>
       </section>

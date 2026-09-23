@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout";
+import { AlsoOnSubstack } from "@/components/AlsoOnSubstack";
 import { Network, Puzzle, Wrench, Target } from "lucide-react";
 
 function CognitiveArchitecture() {
@@ -15,6 +16,7 @@ function CognitiveArchitecture() {
             <p className="text-xl text-muted-foreground">
               Building a distributed mind from complementary disabilities
             </p>
+            <AlsoOnSubstack className="mt-3" />
           </div>
         </div>
       </section>

@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout";
+import { AlsoOnSubstack } from "@/components/AlsoOnSubstack";
 import { Heart, Sparkles } from "lucide-react";
 
 function ForgivenessStory() {
@@ -15,6 +16,7 @@ function ForgivenessStory() {
             <p className="text-xl text-muted-foreground">
               Mike's story of becoming filled with forgiveness
             </p>
+            <AlsoOnSubstack className="mt-3" />
           </div>
         </div>
       </section>
