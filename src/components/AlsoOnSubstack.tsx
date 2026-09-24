@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { essayForRoute, substackPostUrl } from "@/data/substackLinks";
+import { essayCoverUrl, essayForRoute, substackPostUrl } from "@/data/substackLinks";
 
 interface AlsoOnSubstackProps {
   /** Defaults to the current route. Pass explicitly when the essay lives
@@ -18,7 +18,15 @@ export function AlsoOnSubstack({ route, tone = "light", className }: AlsoOnSubst
   const essay = essayForRoute(route ?? location.pathname);
   if (!essay) return null;
   return (
-    <p className={cn("font-sans text-sm", tone === "dark" ? "text-[#b8a9c9]" : "text-muted-foreground", className)}>
+    <div className={cn("font-sans text-sm", tone === "dark" ? "text-[#b8a9c9]" : "text-muted-foreground", className)}>
+      <img
+        src={essayCoverUrl(essay.slug)}
+        alt=""
+        width={1456}
+        height={816}
+        loading="lazy"
+        className="mb-3 w-full rounded-lg"
+      />
       <a
         href={substackPostUrl(essay.slug)}
         target="_blank"
@@ -32,6 +40,6 @@ export function AlsoOnSubstack({ route, tone = "light", className }: AlsoOnSubst
         <ExternalLink className="h-3 w-3" aria-hidden="true" />
         <span className="sr-only">(opens in a new tab)</span>
       </a>
-    </p>
+    </div>
   );
 }

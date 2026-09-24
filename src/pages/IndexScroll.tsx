@@ -596,8 +596,8 @@ function IndexScroll() {
         <div className="container max-w-6xl mx-auto px-4">
           <div className="w-full rounded-lg overflow-hidden mb-8">
             <img
-              src="/ai-wtf-hero.jpg"
-              alt="An elder human face on the left meets a luminous AI figure on the right, both in profile, meeting in curiosity"
+              src="/art/hero-front-door.jpg"
+              alt="A desk at night: an open book whose left page glows cyan and right page glows amber under a lamp, with an empty chair waiting"
               className="w-full h-auto"
             />
           </div>

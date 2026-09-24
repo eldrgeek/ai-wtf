@@ -67,8 +67,10 @@ export function Header({ tone = "light" }: HeaderProps) {
           className={cn("flex items-center gap-2 no-underline rounded-md", !dark && "bg-[#0a1628] px-2 py-1")}
           aria-label="AI-WTF.org home"
         >
-          <img src="/logo.svg" alt="" className="h-9 w-auto hover:opacity-80 transition-opacity" />
-          <span className="sr-only">AI-WTF.org</span>
+          <img src="/logo-mark.png" alt="" className="h-9 w-9 hover:opacity-80 transition-opacity" />
+          <span className="font-sans text-base font-bold tracking-tight text-[#f5f0e6]">
+            AI-WTF<span className="font-normal text-[#b8a9c9]">.org</span>
+          </span>
         </Link>
 
         {/* Desktop navigation */}

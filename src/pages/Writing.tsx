@@ -2,7 +2,7 @@ import { Layout } from "@/components/layout";
 import { Link } from "react-router-dom";
 import { ExternalLink } from "lucide-react";
 import { SubscribeButton } from "@/components/SubscribeButton";
-import { ESSAYS, SUBSTACK_NAME, SUBSTACK_URL, substackPostUrl } from "@/data/substackLinks";
+import { ESSAYS, SUBSTACK_NAME, SUBSTACK_URL, essayCoverUrl, substackPostUrl } from "@/data/substackLinks";
 
 // Added 2026-09-23 (redesign-verso). The essay index: every essay on the site
 // with its Substack twin. Content comes from src/data/substackLinks.ts.
@@ -30,7 +30,11 @@ export default function Writing() {
           {ESSAYS.map((essay) => {
             const readHere = essay.route === "/" ? "/#welcome" : essay.route;
             return (
-              <li key={essay.route} className="py-6">
+              <li key={essay.route} className="py-6 sm:grid sm:grid-cols-[12rem_1fr] sm:gap-6">
+                <Link to={readHere} className="mb-3 block sm:mb-0" aria-hidden="true" tabIndex={-1}>
+                  <img src={essayCoverUrl(essay.slug)} alt="" width={1456} height={816} loading="lazy" className="w-full rounded-md" />
+                </Link>
+                <div>
                 <h2 className="text-2xl md:text-2xl mb-1">
                   <Link to={readHere} className="text-foreground no-underline hover:text-accent">
                     {essay.title}
@@ -51,6 +55,7 @@ export default function Writing() {
                     On Substack <ExternalLink className="h-3 w-3" aria-hidden="true" />
                     <span className="sr-only">(opens in a new tab)</span>
                   </a>
+                </div>
                 </div>
               </li>
             );

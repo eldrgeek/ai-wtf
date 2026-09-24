@@ -107,6 +107,11 @@ export const ESSAYS: Essay[] = [
   },
 ];
 
+/** Cover art for an essay, drawn 2026-09-23 (public/art/CREDITS.md); same file name on the Substack post. */
+export function essayCoverUrl(slug: string): string {
+  return `/art/cover-${slug}.jpg`;
+}
+
 export function substackPostUrl(slug: string): string {
   return `${SUBSTACK_URL}/p/${slug}`;
 }
