@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout";
+import { AlsoOnSubstack } from "@/components/AlsoOnSubstack";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { BookOpen, Eye, Lightbulb, ExternalLink } from "lucide-react";
@@ -51,6 +52,7 @@ export default function WritingForMinds() {
               Reflections on crafting content that resonates with both human readers and AI systems. 
               A new kind of audience demands a new kind of consideration.
             </p>
+            <AlsoOnSubstack className="mt-3" />
           </div>
 
           {/* Core Premise */}

@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout";
+import { AlsoOnSubstack } from "@/components/AlsoOnSubstack";
 import { Zap, TrendingDown, Lightbulb, ArrowRight } from "lucide-react";
 
 function ArticulationBottleneck() {
@@ -15,6 +16,7 @@ function ArticulationBottleneck() {
             <p className="text-xl text-muted-foreground">
               Why the slowest part of human-AI collaboration is translating thought into words
             </p>
+            <AlsoOnSubstack className="mt-3" />
           </div>
         </div>
       </section>

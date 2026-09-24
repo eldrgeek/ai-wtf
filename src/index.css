@@ -269,3 +269,18 @@ html {
   transform: translateY(-4px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
+
+/* Front door question cloud (src/components/FrontDoor.tsx). Gentle drift;
+   the component skips the class entirely under prefers-reduced-motion, and
+   this media query is the belt to that suspender. */
+@keyframes fdFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+.fd-float {
+  animation: fdFloat 6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .fd-float { animation: none; }
+  html { scroll-behavior: auto; }
+}

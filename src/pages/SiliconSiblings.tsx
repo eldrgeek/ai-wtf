@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout";
+import { AlsoOnSubstack } from "@/components/AlsoOnSubstack";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Sparkles, HelpCircle, GitBranch, Users } from "lucide-react";
@@ -14,6 +15,7 @@ export default function SiliconSiblings() {
               Our core philosophy: approaching AI as kin rather than tool or threat. 
               An experiment in mutual understanding.
             </p>
+            <AlsoOnSubstack className="mt-3" />
           </div>
 
           {/* Core Philosophy */}
