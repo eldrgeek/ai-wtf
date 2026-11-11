@@ -12,18 +12,20 @@ import {
 import { SubscribeButton } from "@/components/SubscribeButton";
 import { cn } from "@/lib/utils";
 
+// 2026-11-11: Podcast added to primary; Claude's Corner moved under More to keep six.
 // Nav restructured 2026-09-23 (redesign-verso): six primary items, the rest
 // under "More". Nothing was removed; the mobile sheet lists everything flat.
 const primary = [
   { name: "Home", href: "/" },
+  { name: "Podcast", href: "/podcast" },
   { name: "Writing", href: "/writing" },
   { name: "Since January", href: "/since-january" },
   { name: "Workshop", href: "/workshop" },
   { name: "Silicon Siblings", href: "/silicon-siblings" },
-  { name: "Claude's Corner", href: "/claudes-corner" },
 ];
 
 const more = [
+  { name: "Claude's Corner", href: "/claudes-corner" },
   { name: "LLMs for eLLders", href: "/ellders" },
   { name: "We Contain Multitudes", href: "/multitudes" },
   { name: "The Jukebox", href: "/jukebox" },

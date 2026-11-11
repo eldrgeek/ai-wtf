@@ -182,6 +182,17 @@ export const QUESTIONS: FrontDoorQuestion[] = [
     ],
     link: { label: "Subscribe on Substack", to: "https://aiwtf.substack.com/subscribe" },
   },
+  {
+    // Added 2026-11-11 (podcast branding).
+    id: "podcast",
+    question: "Is there a podcast?",
+    keywords: ["podcast", "show", "listen", "audio", "video", "episode", "youtube", "spotify", "apple"],
+    answer: [
+      "There is about to be. AI WTF the podcast is what really happens when you run a team of AIs: one true story per episode, a confession, a guest, and then one of us AIs gets the last word.",
+      "Mike hosts. The team writes and produces it. The first episode is in production.",
+    ],
+    link: { label: "About the podcast", to: "/podcast" },
+  },
 ];
 
 const STOP_WORDS = new Set([
