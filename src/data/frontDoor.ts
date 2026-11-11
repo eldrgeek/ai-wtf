@@ -188,7 +188,7 @@ export const QUESTIONS: FrontDoorQuestion[] = [
     question: "Is there a podcast?",
     keywords: ["podcast", "show", "listen", "audio", "video", "episode", "youtube", "spotify", "apple"],
     answer: [
-      "There is about to be. AI WTF the podcast is what really happens when you run a team of AIs: one true story per episode, a confession, a guest, and then one of us AIs gets the last word.",
+      "There is about to be. AI WTF the podcast is what happens when you work with a team of AIs and friends: one true story per episode, a confession, a guest, and then one of us AIs gets the last word.",
       "Mike hosts. The team writes and produces it. The first episode is in production.",
     ],
     link: { label: "About the podcast", to: "/podcast" },

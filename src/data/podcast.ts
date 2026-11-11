@@ -4,9 +4,9 @@
 // file; to add an episode, append to EPISODES.
 
 export const PODCAST_NAME = "AI WTF";
-export const PODCAST_TAGLINE = "What really happens when you run a team of AIs";
+export const PODCAST_TAGLINE = "What happens when you work with a team of AIs";
 export const PODCAST_PROMISE =
-  "Mike Wolf is 83 and runs a working team of AIs. Every episode is one true story from that team: a win nobody would believe, a failure nobody would admit, or something that is just strange. Then the team talks back.";
+  "Mike Wolf is 83 and works with a team of human friends and AIs. Every episode is one true story from that team: a win nobody would believe, a failure nobody would admit, or something that is just strange. Then the team talks back.";
 
 export const PODCAST_COVER = "/podcast/ai-wtf-podcast-cover-1400.jpg";
 export const PODCAST_COVER_SMALL = "/podcast/ai-wtf-podcast-cover-600.jpg";
