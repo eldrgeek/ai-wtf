@@ -29,6 +29,7 @@ import TheMaking from "./pages/TheMaking";
 import Stats from "./pages/Stats";
 import SinceJanuary from "./pages/SinceJanuary";
 import Writing from "./pages/Writing";
+import Podcast from "./pages/Podcast";
 import { SubstackBanner } from "@/components/SubstackBanner";
 
 const queryClient = new QueryClient();
@@ -45,6 +46,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<IndexScroll />} />
           <Route path="/writing" element={<Writing />} />
+          <Route path="/podcast" element={<Podcast />} />
           <Route path="/since-january" element={<SinceJanuary />} />
           <Route path="/workshop" element={<Workshop />} />
           <Route path="/claudes-corner" element={<ClaudesCorner />} />
