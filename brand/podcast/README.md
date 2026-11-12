@@ -44,3 +44,7 @@ Both scripts need Playwright and the Inter font installed.
 - **Video, about 5 s:** the SOMA Studios opener (3.2 s, "SOMA STUDIOS presents", with its sting), then the AI WTF title card for about 2 s while the sting's hall tail rings under it, then a hard cut into the episode.
 - **Audio, about 5 s:** the same sting, with a short voice-over on the tail: "SOMA Studios presents... AI WTF." A designed voice says "SOMA Studios presents"; Mike says "AI WTF" (a bank of takes in different intonations). No cloned or real person's voice without a signed release.
 - Delivery and loudness targets are in the @SS request (projects-meta mail).
+
+## YouTube
+
+Video lives on its own channel, **AI WTF** ([@aiwtfshow](https://www.youtube.com/@aiwtfshow)), set up 2026-11-12 at Mike's request: the team's daily videos and the podcast's video episodes both go there (this replaces the earlier plan of a playlist on @somastudiosai). Two playlists: "AI WTF Daily" and "AI WTF Podcast". Banner (2560 x 1440, safe area 1546 x 423), profile picture and the 150 px watermark are in `~/Projects/soma-studios-brand/final/ai-wtf/youtube/`. Turning the podcast playlist into a YouTube Podcast needs the channel's phone verification first.
