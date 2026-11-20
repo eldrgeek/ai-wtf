@@ -1,0 +1,418 @@
+{
+ "format": "wtf-story/0",
+ "preset": "ai-wtf-daily",
+ "id": "2026-11-18",
+ "date": "2026-11-18",
+ "producer": "Mike Wolf",
+ "question": "What happens when the AIs hit their spending cap?",
+ "cast": {
+  "host": {
+   "name": "Mike",
+   "kind": "human"
+  },
+  "verso": {
+   "name": "Verso",
+   "kind": "ai",
+   "voice": "JBFqnCBsd6RMkjVDRZzb",
+   "voice_note": "ElevenLabs premade George until Verso's designed voice exists"
+  }
+ },
+ "calendar": {
+  "month": "2026-11",
+  "filmed": [
+   9,
+   10,
+   11,
+   18,
+   19
+  ]
+ },
+ "beats": [
+  {
+   "id": "open",
+   "visual": {
+    "type": "calendar-open"
+   },
+   "lines": [
+    {
+     "who": "host",
+     "text": "One day with a team of AIs. Wednesday, November eighteenth."
+    },
+    {
+     "who": "verso",
+     "text": "Today's question: what happens when the AIs hit their spending cap?"
+    }
+   ],
+   "chapter": "One day, and today's question"
+  },
+  {
+   "id": "night",
+   "clock": "1:55 AM",
+   "visual": {
+    "type": "terminal",
+    "count_label": "COMMITS",
+    "lines": [
+     [
+      "00:47",
+      "room-edit: return 400 for a script that won't parse"
+     ],
+     [
+      "00:53",
+      "worklog: hourly fetch (2 new merged PRs)"
+     ],
+     [
+      "00:53",
+      "merge old branch tip"
+     ],
+     [
+      "00:56",
+      "worklog: hourly fetch (#208)"
+     ],
+     [
+      "00:57",
+      "restore-sample: escape glob characters in --include"
+     ],
+     [
+      "00:58",
+      "restore-sample: escape glob characters (#209)"
+     ],
+     [
+      "00:58",
+      "worklog: hourly fetch"
+     ],
+     [
+      "01:02",
+      "relay: skip dotfiles and bad files when loading personas"
+     ],
+     [
+      "01:53",
+      "worklog: hourly fetch"
+     ],
+     [
+      "01:53",
+      "merge old branch tip"
+     ],
+     [
+      "01:55",
+      "worklog: hourly fetch (#210)"
+     ]
+    ]
+   },
+   "captions": [
+    {
+     "at": 0,
+     "html": "11 commits before 2 AM. <em>Mike was asleep.</em>"
+    }
+   ],
+   "lines": [
+    {
+     "who": "verso",
+     "text": "Before two in the morning, eleven commits. The team fixes, merges and logs its own work while Mike sleeps."
+    }
+   ],
+   "chapter": "11 commits before 2 AM"
+  },
+  {
+   "id": "sites",
+   "clock": "9:30 AM",
+   "visual": {
+    "type": "captures",
+    "clips": [
+     {
+      "clip": "bds",
+      "url": "best-day-of-my-life.netlify.app"
+     },
+     {
+      "clip": "aa",
+      "url": "ai-anonymous.netlify.app",
+      "cue": "and"
+     }
+    ]
+   },
+   "captions": [
+    {
+     "at": 0,
+     "html": "<u>The Best Day Society</u> · new site, up by 9:30"
+    },
+    {
+     "cue": "and",
+     "html": "<u>AIholics Anonymous:</u> for people who can't stop prompting"
+    }
+   ],
+   "links": [
+    {
+     "label": "The Best Day Society",
+     "url": "https://best-day-of-my-life.netlify.app/"
+    },
+    {
+     "label": "AIholics Anonymous",
+     "url": "https://ai-anonymous.netlify.app/",
+     "cue": "and"
+    }
+   ],
+   "lines": [
+    {
+     "who": "host",
+     "text": "By nine thirty, two new sites. The Best Day Society. And AIholics Anonymous: help for people who can't stop prompting."
+    }
+   ],
+   "chapter": "Two new sites"
+  },
+  {
+   "id": "rule",
+   "clock": "12:03 PM",
+   "visual": {
+    "type": "document",
+    "heading": "HOUSE RULES · DELEGATION",
+    "before": [
+     "Tier A: the team acts and reports. Tier B: it acts, then tells Mike the same day.",
+     "Spending, per item, only within funds Mike already allocated: the capped cards. Up to $10."
+    ],
+    "key": "Mike's finger approves new money.",
+    "after": [
+     "Delegated spending happens only inside funds he has already allocated. The card's decline is the limit."
+    ],
+    "highlight_cue": "new#1",
+    "mark_cue": "finger",
+    "glyph": "fingerprint"
+   },
+   "captions": [
+    {
+     "cue": "new#1",
+     "html": "New rule: <em>new money needs Mike's finger.</em>"
+    }
+   ],
+   "lines": [
+    {
+     "who": "host",
+     "text": "Noon. A new house rule: the team spends only from capped cards. New money needs my finger."
+    }
+   ],
+   "chapter": "New money needs Mike's finger"
+  },
+  {
+   "id": "booth",
+   "clock": "7:00 PM",
+   "visual": {
+    "type": "captures",
+    "zoom": true,
+    "clips": [
+     {
+      "clip": "booth",
+      "url": "somastudios.ai/voice"
+     }
+    ]
+   },
+   "captions": [
+    {
+     "at": 0,
+     "html": "<u>Voice booth</u> goes public"
+    },
+    {
+     "cue": "record",
+     "html": "Record once. <em>Choose who may use it.</em> Take it back."
+    }
+   ],
+   "links": [
+    {
+     "label": "Voice booth",
+     "url": "https://somastudios.ai/voice/"
+    }
+   ],
+   "lines": [
+    {
+     "who": "host",
+     "text": "Seven P.M. The voice booth goes public. Record your voice once, choose exactly who may use it, and take it back whenever you like."
+    }
+   ],
+   "chapter": "The voice booth goes public"
+  },
+  {
+   "id": "wtf",
+   "clock": "7:18 PM",
+   "clock_after": {
+    "cue": "four",
+    "clock": "7:22 PM"
+   },
+   "visual": {
+    "type": "spend-meter",
+    "label": "ONE EXPERIMENT'S SPEND",
+    "cap_label": "SPENDING CAP",
+    "stamp": "OVER CAP",
+    "rise_from": "experiment",
+    "rise_to": "cap",
+    "shout_cue": "wtf",
+    "cards": [
+     {
+      "cue": "fix",
+      "kind": "good",
+      "text": "Fix: spend checks read the provider's real balance"
+     },
+     {
+      "cue": "four",
+      "kind": "bad",
+      "text": "Judge AI: quota exceeded"
+     }
+    ]
+   },
+   "lines": [
+    {
+     "who": "host",
+     "text": "Seven eighteen. The WTF."
+    },
+    {
+     "who": "verso",
+     "text": "An experiment blows straight past its spending cap. The fix: spend checks now read the real balance from the provider. Four minutes later, the judge AI runs out of quota too."
+    }
+   ],
+   "chapter": "WTF: over the spending cap"
+  },
+  {
+   "id": "shop",
+   "clock": "8:10 PM",
+   "visual": {
+    "type": "captures",
+    "clips": [
+     {
+      "clip": "shop",
+      "url": "ai-anonymous.netlify.app/shop"
+     }
+    ]
+   },
+   "captions": [
+    {
+     "at": 0,
+     "html": "<u>AIholics swag shop</u> · opening soon"
+    },
+    {
+     "cue": "i'm",
+     "html": "\"I'm an <em>AI</em>dict\" · in gold"
+    }
+   ],
+   "links": [
+    {
+     "label": "Swag shop",
+     "url": "https://ai-anonymous.netlify.app/shop.html"
+    }
+   ],
+   "lines": [
+    {
+     "who": "verso",
+     "text": "Eight ten. The AIholics swag shop, opening soon. I'm an AIdict, in gold."
+    }
+   ],
+   "chapter": "AIholics swag shop"
+  },
+  {
+   "id": "jobs",
+   "clock": "8:30 PM",
+   "visual": {
+    "type": "sort-dots",
+    "count": 115,
+    "groups": 12,
+    "label": "background jobs",
+    "count_from": "hundred",
+    "count_to": "jobs",
+    "sort_cue": "sorted"
+   },
+   "captions": [
+    {
+     "at": 0,
+     "html": "A plan for the Mac's background jobs"
+    },
+    {
+     "cue": "sorted",
+     "html": "115 jobs → <em>12 families</em>"
+    }
+   ],
+   "lines": [
+    {
+     "who": "host",
+     "text": "Eight thirty. A plan for the hundred and fifteen background jobs on my Mac, sorted into twelve families."
+    }
+   ],
+   "chapter": "115 jobs, 12 families"
+  },
+  {
+   "id": "log",
+   "clock": "8:34 PM",
+   "visual": {
+    "type": "stats",
+    "heading": "THE WORK LOG",
+    "stats": [
+     {
+      "n": 1190,
+      "label": "merged pull requests",
+      "cue": "eleven",
+      "tone": "ai"
+     },
+     {
+      "n": 404,
+      "label": "artifact versions",
+      "cue": "four"
+     },
+     {
+      "n": 19,
+      "label": "projects",
+      "cue": "nineteen"
+     },
+     {
+      "n": 54,
+      "label": "commits today",
+      "cue": "fifty",
+      "tone": "wtf"
+     }
+    ]
+   },
+   "lines": [
+    {
+     "who": "verso",
+     "text": "And the work log: eleven hundred and ninety merged pull requests. Four hundred artifact versions. Nineteen projects. Fifty-four commits today."
+    }
+   ],
+   "chapter": "The work log"
+  },
+  {
+   "id": "out",
+   "visual": {
+    "type": "calendar-out",
+    "title": "One day.",
+    "sub_cue": "links",
+    "sub": "Links to everything<br>you just saw are below ↓"
+   },
+   "links": [
+    {
+     "label": "ai-wtf.org",
+     "url": "https://ai-wtf.org/"
+    }
+   ],
+   "lines": [
+    {
+     "who": "host",
+     "text": "That was one day."
+    },
+    {
+     "who": "verso",
+     "text": "Links to everything you just saw are below."
+    }
+   ],
+   "chapter": "One day"
+  }
+ ],
+ "sources": [
+  "git log across Mike's repos (Mike Wolf and Claude authors)",
+  "Fathom: 2 calls",
+  "ESTATE.md changelog 2026-11-18",
+  "projects-meta #213, #228"
+ ],
+ "privacy": {
+  "named_people": [
+   "Mike Wolf"
+  ],
+  "left_out": [
+   "a friend's small-business site build",
+   "feedback on the Witness play",
+   "WTF #17 (public figure; Mike decides)"
+  ]
+ }
+}
