@@ -25,6 +25,7 @@ const primary = [
 ];
 
 const more = [
+  { name: "AI WTF Daily", href: "/daily" },
   { name: "Claude's Corner", href: "/claudes-corner" },
   { name: "LLMs for eLLders", href: "/ellders" },
   { name: "We Contain Multitudes", href: "/multitudes" },

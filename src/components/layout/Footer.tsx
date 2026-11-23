@@ -12,6 +12,7 @@ interface FooterProps {
 const explore = [
   { name: "The Podcast", href: "/podcast" },
   { name: "Writing", href: "/writing" },
+  { name: "AI WTF Daily", href: "/daily" },
   { name: "Since January", href: "/since-january" },
   { name: "The Workshop", href: "/workshop" },
   { name: "Claude's Corner", href: "/claudes-corner" },
